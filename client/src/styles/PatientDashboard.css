@@ -1,0 +1,137 @@
+.patient-dashboard {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f0f6ff;
+    color: #1f1f1f;
+    padding-bottom: 50px;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #fff;
+  }
+  
+  .logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: #0056d2;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 40px;
+  }
+  
+  .nav-links a {
+    color: #1f1f1f;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  
+  .nav-links span {
+    font-weight: normal;
+    font-size: 12px;
+    color: gray;
+  }
+  
+  .banner {
+    background-color: #081b56;
+    text-align: center;
+    color: white;
+    padding: 40px 20px;
+  }
+  
+  .banner h2 {
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+  
+  .banner p {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  
+  .icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .icons img {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .booking-section {
+    max-width: 1200px;
+    margin: auto;
+    padding: 30px;
+    position: relative;
+  }
+  
+  .booking-section h3 {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 5px;
+    font-weight: 600;
+  }
+  
+  .booking-section p {
+    text-align: center;
+    font-size: 14px;
+    color: gray;
+    margin-bottom: 30px;
+  }
+  
+  .booking-form {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+  }
+  
+  .booking-form .left,
+  .booking-form .right {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 45%;
+  }
+  
+  .booking-form input,
+  .booking-form select,
+  .booking-form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .booking-form textarea {
+    resize: vertical;
+    height: 80px;
+  }
+  
+  .booking-form button {
+    background-color: #004ecb;
+    color: white;
+    padding: 12px;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .illustration {
+    position: absolute;
+    right: 30px;
+    bottom: 0;
+    width: 120px;
+  }
+  

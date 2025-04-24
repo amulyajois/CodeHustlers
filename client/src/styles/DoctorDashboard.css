@@ -1,0 +1,130 @@
+.doctor-dashboard {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f0f6ff;
+  color: #1f1f1f;
+  padding-bottom: 50px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #fff;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: #0056d2;
+}
+
+.nav-links {
+  display: flex;
+  gap: 40px;
+}
+
+.nav-links a {
+  color: #1f1f1f;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.nav-links span {
+  font-weight: normal;
+  font-size: 12px;
+  color: gray;
+}
+
+.banner {
+  background-color: #0d2366;
+  text-align: center;
+  color: white;
+  padding: 40px 20px;
+}
+
+.banner h2 {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.banner p {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.dashboard-section {
+  max-width: 800px;
+  margin: auto;
+  padding: 30px;
+  position: relative;
+}
+
+.dashboard-section h3 {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.dashboard-section p {
+  text-align: center;
+  font-size: 14px;
+  color: gray;
+  margin-bottom: 30px;
+}
+
+.doctor-form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.form-group label {
+  font-weight: 600;
+}
+
+.form-group select,
+.form-group input {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.form-group button {
+  background-color: #004ecb;
+  color: white;
+  padding: 10px 20px;
+  font-weight: bold;
+  font-size: 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  width: fit-content;
+  align-self: flex-start;
+}
+
+.illustration {
+  width: 120px;
+  position: absolute;
+  right: 30px;
+  bottom: 0;
+}

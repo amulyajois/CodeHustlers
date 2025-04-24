@@ -1,0 +1,186 @@
+.hospital-dashboard {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f0f6ff;
+    padding-bottom: 50px;
+    color: #1f1f1f;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #fff;
+  }
+  
+  .logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: #0056d2;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 40px;
+  }
+  
+  .nav-links a {
+    color: #1f1f1f;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  
+  .nav-links span {
+    font-weight: normal;
+    font-size: 12px;
+    color: gray;
+  }
+  
+  .banner {
+    background-color: #081b56;
+    text-align: center;
+    color: white;
+    padding: 40px 20px;
+  }
+  
+  .banner h2 {
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+  
+  .banner p {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  
+  .icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .icons img {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .dashboard-content {
+    max-width: 1000px;
+    margin: auto;
+    padding: 30px;
+    position: relative;
+  }
+  
+  .dashboard-content h3 {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  
+  .dashboard-content p {
+    text-align: center;
+    font-size: 14px;
+    color: gray;
+    margin-bottom: 30px;
+  }
+  
+  .hospital-form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 700px;
+  }
+  
+  .timings {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .timings > label {
+    font-weight: 600;
+    min-width: 150px;
+  }
+  
+  .time-inputs {
+    display: flex;
+    gap: 100px;
+  }
+  
+  .time-inputs div {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .time-inputs label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    font-weight: 500;
+  }
+  
+  .time-inputs select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    min-width: 120px;
+  }
+  
+  
+  .doctor-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  .doctor-row div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1;
+  }
+  
+  input, select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    margin-top: 20px;
+  }
+  
+  button.add {
+    background-color: gray;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  button.done {
+    background-color: #004ecb;
+    color: white;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .illustration {
+    position: absolute;
+    right: 50px;
+    bottom: 20px;
+    width: 120px;
+  }
+  
