@@ -1,32 +1,56 @@
-
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import '../styles/Login.css';
+import '../styles/Login.css'; // Same login styling
 
-const PatientLogin = () => {
+const HospitalLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Add validation or API call to check login credentials
-    if (email && password) {
-      // On successful login, redirect to PatientDashboard
-      navigate('/dashboard/hospital');
+  
+    try {
+      const response = await fetch("http://localhost:5000/api/hospital/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password })
+      });
+  
+      const data = await response.json();
+  
+      if (response.ok) {
+        alert("Login Successful!");
+  
+        // Store hospitalId and any other required data in localStorage
+        localStorage.setItem('hospitalId', data.hospital.hospitalId);  // Store hospitalId in localStorage
+        localStorage.setItem('hospitalToken', data.token); // If you need to store the token
+  
+        navigate("/dashboard/hospital"); // Redirect to Hospital Dashboard
+      } else {
+        setError(data.message || "Login failed");
+      }
+    } catch (err) {
+      setError("Server error. Please try again later.");
     }
   };
+  
 
   return (
     <div className="login-container">
       <form className="login-form" onSubmit={handleSubmit}>
         <h2>Login</h2>
+
+        {error && <p className="error">{error}</p>}
+
         <label>Email</label>
         <input
           type="email"
           placeholder="Enter your email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          required
         />
 
         <label>Password</label>
@@ -35,6 +59,7 @@ const PatientLogin = () => {
           placeholder="Enter your password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          required
         />
 
         <div className="remember-me">
@@ -53,4 +78,4 @@ const PatientLogin = () => {
   );
 };
 
-export default PatientLogin;
+export default HospitalLogin;

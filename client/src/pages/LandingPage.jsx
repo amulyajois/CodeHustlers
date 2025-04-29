@@ -23,7 +23,7 @@ const LandingPage = () => {
         <div className="hero-icons">
           {[...Array(6)].map((_, i) => (
             <div className="icon-box" key={i}>
-              <img src={`/assets/icon${i + 1}.png`} alt={`icon-${i + 1}`} />
+            {/*  <img src={/assets/icon${i + 1}.png} alt={icon-${i + 1}} />*/}
             </div>
           ))}
         </div>
@@ -34,7 +34,7 @@ const LandingPage = () => {
         <div className="cards">
           {["Hospital & Clinics", "Find Doctors Nearby", "Book Convenient Appointment"].map((title, i) => (
             <div className="card" key={i}>
-              <img src={`/assets/feature${i + 1}.png`} alt={title} />
+            {/*  <img src={/assets/feature${i + 1}.png} alt={title} />*/}
               <h3>{title}</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel elit id orci.</p>
             </div>

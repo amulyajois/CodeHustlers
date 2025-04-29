@@ -1,52 +1,347 @@
-.doctor-dashboard {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #f0f6ff;
-  color: #1f1f1f;
-  padding-bottom: 50px;
+/* DoctorDashboard.css */
+
+.hospital-dashboard {
+  background-color: #f0f5ff;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  padding: 20px;
 }
 
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-text {
+  padding: 15px 20px;
+  color: #8f9bb3;
+  font-size: 18px;
+}
+
+/* Navbar Styles */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
-  background-color: #fff;
+  padding: 10px 20px;
+  border-bottom: 1px solid #e9ecef;
 }
 
 .logo {
+  color: #0039a6;
   font-size: 24px;
-  font-weight: 700;
-  color: #0056d2;
+  font-weight: bold;
 }
 
 .nav-links {
   display: flex;
-  gap: 40px;
 }
 
 .nav-links a {
-  color: #1f1f1f;
-  text-align: center;
+  margin-left: 20px;
   text-decoration: none;
-  font-weight: 600;
-}
-
-.nav-links span {
-  font-weight: normal;
-  font-size: 12px;
-  color: gray;
-}
-
-.banner {
-  background-color: #0d2366;
+  color: #333;
   text-align: center;
+  font-size: 14px;
+}
+
+.nav-links a span {
+  font-size: 12px;
+  color: #8f9bb3;
+}
+
+.logout {
+  color: #0039a6 !important;
+}
+
+/* Banner Section */
+.banner {
+  background-color: #0a1155;
   color: white;
-  padding: 40px 20px;
+  text-align: center;
+  padding: 20px;
 }
 
 .banner h2 {
-  font-size: 20px;
   margin-bottom: 5px;
+  font-size: 24px;
+}
+
+.banner p {
+  margin-top: 0;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.icons-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.icon-hexagon {
+  width: 60px;
+  height: 60px;
+  background-color: white;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-hexagon img {
+  width: 30px;
+  height: 30px;
+}
+
+/* Dashboard Content */
+.dashboard-content {
+  padding: 20px;
+  position: relative;
+}
+
+.content-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.content-header h3 {
+  margin-bottom: 5px;
+  color: #333;
+  font-size: 18px;
+}
+
+.content-header p {
+  margin-top: 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.form-container {
+  display: flex;
+  position: relative;
+}
+
+.hospital-form {
+  width: 70%;
+  padding-right: 20px;
+}
+
+.form-section {
+  margin-bottom: 30px;
+}
+
+.form-label {
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.time-inputs {
+  display: flex;
+  gap: 30px;
+}
+
+.time-input-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.time-input-group label {
+  width: 40px;
+}
+
+.select-wrapper {
+  position: relative;
+  width: 200px;
+}
+
+.select-wrapper select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  appearance: none;
+  background-color: white;
+  font-size: 14px;
+}
+
+.select-wrapper::after {
+  content: '▼';
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  color: #666;
+  pointer-events: none;
+  font-size: 12px;
+}
+
+.doctor-section {
+  display: flex;
+  gap: 30px;
+}
+
+.doctor-info, .slots-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.doctor-info {
+  width: 50%;
+}
+
+.doctor-info input {
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+}
+
+.button-group {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.add-more-btn {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 170px;
+}
+
+.done-btn {
+  background-color: #0039a6;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  flex-grow: 1;
+}
+
+.add-more-btn:hover {
+  background-color: #5a6268;
+}
+
+.done-btn:hover {
+  background-color: #002d80;
+}
+
+.hospital-illustration {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hospital-illustration img {
+  width: 100%;
+  max-width: 200px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .form-container {
+    flex-direction: column;
+  }
+  
+  .hospital-form {
+    width: 100%;
+    padding-right: 0;
+  }
+  
+  .hospital-illustration {
+    width: 100%;
+    margin-top: 30px;
+  }
+  
+  .time-inputs, .doctor-section {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .doctor-info {
+    width: 100%;
+  }
+}/* DoctorDashboard.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+.dashboard-container {
+  min-height: 100vh;
+  background-color: #f0f6ff;
+}
+
+/* Header */
+.header {
+  background-color: #f8f9fa;
+  padding: 10px 20px;
+  border-bottom: 1px solid #e7e7e7;
+}
+
+.header-title {
+  color: #aaaaaa;
+  font-weight: 300;
+}
+
+/* Navigation */
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: white;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+  color: #0047AB;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-item {
+  text-align: center;
+}
+
+.nav-link {
+  color: #0047AB;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.nav-description {
+  font-size: 12px;
+  color: #777;
+}
+
+/* Banner */
+.banner {
+  background-color: #00205B;
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+}
+
+.banner h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
 }
 
 .banner p {
@@ -54,77 +349,143 @@
   margin-bottom: 20px;
 }
 
-.icons {
+.icon-container {
   display: flex;
   justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 20px;
 }
 
-.dashboard-section {
-  max-width: 800px;
-  margin: auto;
-  padding: 30px;
-  position: relative;
-}
-
-.dashboard-section h3 {
-  text-align: center;
-  font-size: 18px;
-  margin-bottom: 5px;
-  font-weight: 600;
-}
-
-.dashboard-section p {
-  text-align: center;
-  font-size: 14px;
-  color: gray;
-  margin-bottom: 30px;
-}
-
-.doctor-form {
+.icon-box {
+  background-color: #f0f6ff;
+  border-radius: 10px;
+  width: 65px;
+  height: 65px;
   display: flex;
-  flex-direction: column;
-  gap: 30px;
   align-items: center;
+  justify-content: center;
+}
+
+.icon-placeholder {
+  width: 40px;
+  height: 40px;
+  background-color: #ddd;
+  border-radius: 5px;
+}
+
+/* Main Content */
+.main-content {
+  display: flex;
+  padding: 20px;
+  gap: 20px;
+}
+
+.dashboard-panel {
+  flex: 3;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid #e0e0e0;
+  padding: 20px;
+}
+
+.panel-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.panel-title h2 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.panel-title p {
+  font-size: 14px;
+  color: #777;
+}
+
+.form-section {
+  max-width: 500px;
+  margin: 0 auto;
 }
 
 .form-group {
+  margin-bottom: 20px;
   display: flex;
-  flex-direction: column;
+  align-items: center;
   gap: 10px;
-  width: 100%;
-  max-width: 500px;
 }
 
 .form-group label {
-  font-weight: 600;
-}
-
-.form-group select,
-.form-group input {
-  padding: 10px;
-  font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-}
-
-.form-group button {
-  background-color: #004ecb;
-  color: white;
-  padding: 10px 20px;
-  font-weight: bold;
-  font-size: 15px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  width: fit-content;
-  align-self: flex-start;
-}
-
-.illustration {
   width: 120px;
-  position: absolute;
-  right: 30px;
-  bottom: 0;
+  text-align: right;
+  font-weight: bold;
+}
+
+.form-group input, .form-group select {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.action-button {
+  display: block;
+  width: 300px;
+  margin: 20px auto;
+  padding: 10px;
+  background-color: #0047AB;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.action-button:hover {
+  background-color: #003380;
+}
+
+/* Sidebar */
+.sidebar {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f6ff;
+}
+
+.doctor-avatar img {
+  width: 150px;
+  height: 150px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .main-content {
+    flex-direction: column;
+  }
+  
+  .nav-links {
+    gap: 15px;
+  }
+  
+  .icon-container {
+    flex-wrap: wrap;
+  }
+  
+  .form-group {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .form-group label {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 5px;
+  }
+  
+  .action-button {
+    width: 100%;
+  }
 }
