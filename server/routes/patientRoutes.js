@@ -4,6 +4,7 @@ const bcrypt = require("bcryptjs");
 const Patient = require("../models/Patient");
 const Hospital = require("../models/Hospital"); // Import Hospital model
 const Doctor = require("../models/Doctor"); // Import Doctor model
+const Booking = require("../models/Booking"); // Import Booking model
 
 // Register Route
 router.post("/register", async (req, res) => {
@@ -59,7 +60,26 @@ router.post("/login", async (req, res) => {
   }
 });
 
-// Route to get patient details by ID
+// Route to get hospitals by state and district - MOVED ABOVE /:id route
+router.get("/hospitals", async (req, res) => {
+  const { state, district } = req.query;
+
+  if (!state || !district) {
+    return res.status(400).json({ message: "State and district are required" });
+  }
+
+  try {
+    // Find hospitals matching state and district
+    const hospitals = await Hospital.find({ state, district }).select('-password'); // Exclude password
+    res.status(200).json(hospitals);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).json({ message: "Server error" });
+  }
+});
+
+
+// Route to get patient details by ID - MOVED BELOW /hospitals route
 router.get("/:id", async (req, res) => {
   try {
     const patient = await Patient.findById(req.params.id).select('-password'); // Exclude password
@@ -110,24 +130,6 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-
-// Route to get hospitals by state and district
-router.get("/hospitals", async (req, res) => {
-  const { state, district } = req.query;
-
-  if (!state || !district) {
-    return res.status(400).json({ message: "State and district are required" });
-  }
-
-  try {
-    // Find hospitals matching state and district
-    const hospitals = await Hospital.find({ state, district }).select('-password'); // Exclude password
-    res.status(200).json(hospitals);
-  } catch (err) {
-    console.error(err.message);
-    res.status(500).json({ message: "Server error" });
-  }
-});
 
 // Route to get doctors and their slots for a specific hospital
 router.get("/hospitals/:hospitalId/doctors", async (req, res) => {
@@ -201,11 +203,19 @@ router.post("/book-slot", async (req, res) => {
     // Save the updated hospital document
     await hospital.save();
 
-    // In a real application, you would also create a booking record
-    // associated with the patient, hospital, doctor, date, and slot.
-    // For this example, we'll just confirm the slot removal.
+    // Create a new booking record
+    const newBooking = new Booking({
+      patient: patientId,
+      hospital: hospitalId,
+      doctor: doctorId,
+      date: date,
+      slot: slot
+    });
 
-    res.status(200).json({ message: "Slot booked successfully" });
+    await newBooking.save();
+
+
+    res.status(200).json({ message: "Slot booked successfully", booking: newBooking });
 
   } catch (err) {
     console.error(err.message);

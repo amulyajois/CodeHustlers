@@ -139,7 +139,7 @@ const PatientDashboard = () => {
 
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/hospitals/by-location?state=${state}&district=${district}`
+        `http://localhost:5000/api/patient/hospitals?state=${state}&district=${district}`
       );
       setHospitals(res.data);
       // Reset selections when searching for new hospitals
@@ -200,7 +200,8 @@ const PatientDashboard = () => {
 
 
   // Handle booking the selected slot
-  const handleBookSlot = async () => {
+   // Handle booking the selected slot
+   const handleBookSlot = async () => {
     if (!patientId || !selectedDoctor || !selectedDate || !selectedSlot || !selectedHospital) {
       alert("Please select a hospital, doctor, date, and slot.");
       return;
@@ -213,9 +214,8 @@ const PatientDashboard = () => {
         hospitalId: selectedHospital._id,
         date: selectedDate,
         slot: selectedSlot,
-        // You might want to include patientDetails here if the backend book-slot
-        // route is updated to accept and store them with the booking.
-        // patientDetails: patientDetails
+        // Include patientDetails in the booking request
+        patientDetails: patientDetails
       });
 
       setBookingMessage(res.data.message || "Booking confirmed!");
