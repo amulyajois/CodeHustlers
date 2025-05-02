@@ -20,13 +20,19 @@ const LandingPage = () => {
       <section className="hero-section">
         <h1>Book Appointment with Trusted Doctors</h1>
         <p>Secure appointments with top city specialists.</p>
-        <div className="hero-icons">
-          {[...Array(6)].map((_, i) => (
-            <div className="icon-box" key={i}>
-            {/*  <img src={/assets/icon${i + 1}.png} alt={icon-${i + 1}} />*/}
+        <div className="icon-container">
+          {[1, 2, 3, 4, 5, 6].map((icon, index) => (
+            <div key={index} className="icon-box">
+              {/* Replace with actual icons */}
+              <img
+          src={`/assets/icons/icon${icon}.png`}
+          alt={`icon-${icon}`}
+          className="banner-icon"
+        />
+              
             </div>
-          ))}
-        </div>
+            ))}
+          </div>
       </section>
 
       <section className="booking-platform">
@@ -36,7 +42,8 @@ const LandingPage = () => {
             <div className="card" key={i}>
             {/*  <img src={/assets/feature${i + 1}.png} alt={title} />*/}
               <h3>{title}</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel elit id orci.</p>
+              <p>Doctor / Hospital / Specialization to match specific consultation needs.
+Confirmed Online Appointment slots, practice locations, to select from to book appointment for clinic consultation.</p>
             </div>
           ))}
         </div>
@@ -63,12 +70,12 @@ const LandingPage = () => {
         <p>Choose how you want to contribute – as a patient, a doctor, or a hospital admin.</p>
         <div className="roles">
           <div className="role-card" onClick={() => navigate("/register/patient")}> 
-            <img src="/assets/role1.png" alt="Patient" />
+            <img src="/assets/icons/patient-illustration.png" alt="Patient" />
             <h3>Patient</h3>
             <p>Search, book, and manage your appointments seamlessly.</p>
           </div>
           <div className="role-card" onClick={() => navigate("/register/hospital")}> 
-            <img src="/assets/role2.png" alt="Hospital" />
+            <img src="/assets/icons/hospital-illustration.png" alt="Hospital" />
             <h3>Hospital</h3>
             <p>Manage doctor availability and patient bookings easily.</p>
           </div>

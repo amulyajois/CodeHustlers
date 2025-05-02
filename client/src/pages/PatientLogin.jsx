@@ -63,10 +63,7 @@ const PatientLogin = () => {
           required
         />
 
-        <div className="remember-me">
-          <input type="checkbox" id="remember" />
-          <label htmlFor="remember">Remember Me</label>
-        </div>
+       
 
         <button type="submit">Login</button>
 

@@ -135,7 +135,7 @@ const RegisterDoctor = () => {
     <div className="register-container">
       <form className="register-form" onSubmit={handleSubmit}>
         <h2 className="logo">MediMeet</h2>
-        <h3>CREATE AN ACCOUNT</h3>
+        <h3>DOCTOR REGISTRATION</h3>
 
         {error && <p className="error">{error}</p>}
 

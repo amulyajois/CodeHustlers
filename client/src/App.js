@@ -10,6 +10,8 @@ import DoctorLogin from './pages/DoctorLogin';
 import PatientDashboard from './pages/PatientDashboard';
 import DoctorDashboard from './pages/DoctorDashboard';
 import HospitalDashboard from './pages/HospitalDashboard';
+import AppointmentConfirmation from './pages/AppointmentConfirmation';
+
 
 const App = () => {
   return (
@@ -26,8 +28,10 @@ const App = () => {
       <Route path="/dashboard/patient" element={<PatientDashboard />} />
         <Route path="/dashboard/hospital" element={<HospitalDashboard />} />
         <Route path="/dashboard/doctor" element={<DoctorDashboard />} />
+{/* Appointment confirmation route */}
+<Route path="/appointment-confirmation" element={<AppointmentConfirmation />} />
 
-
+      {/* Add more routes as needed */}
     </Routes>
   );
 };

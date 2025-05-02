@@ -219,6 +219,11 @@ const PatientDashboard = () => {
       });
 
       setBookingMessage(res.data.message || "Booking confirmed!");
+      // Assuming the backend returns the new booking details including appointmentId
+      const bookingDetails = res.data.booking;
+
+      // Navigate to AppointmentConfirmation and pass booking details
+      navigate('/appointment-confirmation', { state: { bookingDetails } });
       // Optionally refresh doctor slots after booking to show the slot is gone
       if (selectedHospital) {
          handleSelectHospital(selectedHospital._id);
@@ -267,12 +272,17 @@ const PatientDashboard = () => {
           <h2>BOOK APPOINTMENT WITH TRUSTED DOCTORS</h2>
           <p>Search hospitals, find doctors by specialization</p>
           {/* Icons container - keep as is or update as needed */}
-          <div className="icons-container">
-            {[...Array(6)].map((_, i) => (
-              <div key={i} className="icon-hexagon">
-                {/* Ensure image paths are correct */}
-                {/* <img src={`/assets/icon${i + 1}.png`} alt={`Medical specialty icon ${i + 1}`} /> */}
-              </div>
+          <div className="icon-container">
+          {[1, 2, 3, 4, 5, 6].map((icon, index) => (
+            <div key={index} className="icon-box">
+              {/* Replace with actual icons */}
+              <img
+          src={`/assets/icons/icon${icon}.png`}
+          alt={`icon-${icon}`}
+          className="banner-icon"
+        />
+              
+            </div>
             ))}
           </div>
         </section>
@@ -466,7 +476,7 @@ const PatientDashboard = () => {
             <div className="illustration">
               {/* Ensure image path is correct */}
               <img
-                src="/assets/patient-illustration.png"
+                src="/assets/icons/patient-illustration.png"
                 alt="Patient Illustration"
               />
             </div>

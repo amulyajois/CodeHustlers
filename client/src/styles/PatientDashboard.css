@@ -169,8 +169,29 @@
   pointer-events: none;
   font-size: 12px;
 }
+.search-hospitals-btn {
+  width: 200px;
+  background-color: #0039a6;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.save-details-btn {
+  width: 600px;
+  background-color: #0039a6;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
 
 .book-now-btn {
+  width: 200px;
   background-color: #0039a6;
   color: white;
   border: none;
@@ -188,7 +209,7 @@
 .illustration {
   position: absolute;
   right: 0;
-  bottom: 0;
+  bottom: 200px;
   width: 200px;
 }
 

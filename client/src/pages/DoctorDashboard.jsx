@@ -40,7 +40,12 @@ function DoctorDashboard() {
           {[1, 2, 3, 4, 5, 6].map((icon, index) => (
             <div key={index} className="icon-box">
               {/* Replace with actual icons */}
-              <div className="icon-placeholder"></div>
+              <img
+          src={`/assets/icons/icon${icon}.png`}
+          alt={`icon-${icon}`}
+          className="banner-icon"
+        />
+              
             </div>
           ))}
         </div>

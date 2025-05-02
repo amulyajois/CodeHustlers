@@ -27,6 +27,10 @@ const BookingSchema = mongoose.Schema({
   bookedAt: {
     type: Date,
     default: Date.now
+  },
+  bookingNumber: {
+    type: Number,
+    unique: true // Ensure each booking number is unique
   }
 });
 
