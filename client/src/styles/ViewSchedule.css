@@ -1,0 +1,125 @@
+.view-schedule-container {
+    font-family: 'Segoe UI', sans-serif;
+    color: #111;
+    background-color: #f6f9ff;
+    position: relative;
+  }
+  
+  /* Header */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 30px;
+    border-bottom: 1px solid #0073e6;
+  }
+  
+  .header h1 {
+    font-size: 26px;
+    color: #0056b3;
+    font-weight: bold;
+  }
+  
+  .header-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .header-links span {
+    font-size: 12px;
+    color: #333;
+    line-height: 1.2;
+  }
+  
+  .header-links button {
+    background: none;
+    border: none;
+    color: #0056b3;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  /* Banner */
+  .banner {
+    background-color: #001a4d;
+    color: white;
+    text-align: center;
+    padding: 20px 10px;
+  }
+  
+  .banner h2 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+  
+  .banner p {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  .icons-row {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  
+  .icons-row img {
+    width: 60px;
+  }
+  
+  /* Main Schedule Section */
+  .schedule-section {
+    padding: 40px 60px 20px;
+    max-width: 800px;
+  }
+  
+  .schedule-section h4 {
+    font-size: 16px;
+    color: #222;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 5px;
+  }
+  
+  .schedule-section p {
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  .schedule-section label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+  
+  .schedule-section input[type="date"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-left: 10px;
+  }
+  
+  /* Table */
+  .schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 14px;
+  }
+  
+  .schedule-table th,
+  .schedule-table td {
+    border: 1px solid #999;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .schedule-table th {
+    background-color: #f0f4fa;
+    font-weight: bold;
+  }
+  

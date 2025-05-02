@@ -1,0 +1,137 @@
+/* General Layout */
+.doctor-dashboard {
+  background-color: #f0f7ff;
+  font-family: 'Segoe UI', sans-serif;
+  color: #111;
+  min-height: 100vh;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: 700;
+  color: #0056b3;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.nav-links a,
+.nav-links button.logout {
+  font-size: 14px;
+  text-align: right;
+  line-height: 1.2;
+  background: none;
+  border: none;
+  color: #003366;
+  cursor: pointer;
+}
+
+.nav-links span {
+  display: block;
+  font-size: 12px;
+  color: #666;
+}
+
+/* Banner */
+.banner {
+  background-color: #001a4d;
+  color: #fff;
+  text-align: center;
+  padding: 25px 15px;
+}
+
+.banner h2 {
+  margin-bottom: 5px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.banner p {
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.icons-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.icon-hexagon img {
+  width: 60px;
+  height: auto;
+}
+
+/* Main Content */
+.doctor-content {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 60px;
+}
+
+.left-panel {
+  flex: 1;
+  padding-right: 40px;
+}
+
+.left-panel h4 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #003366;
+}
+
+.left-panel p {
+  font-size: 14px;
+  margin-bottom: 30px;
+  color: #444;
+}
+
+.form-group {
+  margin-bottom: 30px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+input[type="date"],
+input[type="text"] {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.primary-button {
+  background-color: #0056b3;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.primary-button:hover {
+  background-color: #004494;
+}
+
