@@ -9,7 +9,7 @@ const HospitalDashboard = () => {
   const [availableDoctors, setAvailableDoctors] = useState([]);
   const [selectedDoctorId, setSelectedDoctorId] = useState('');
   const [currentSlotsForDoctor, setCurrentSlotsForDoctor] = useState([]);
-  const [newSlotInput, setNewSlotInput] = useState({ date: '', from: '', to: '', ampmFrom: 'AM', ampmTo: 'AM' });
+  const [newSlotInput, setNewSlotInput] = useState({ date: '', from: '', to: '' });
   const [timings, setTimings] = useState([]);
   const [newTiming, setNewTiming] = useState({ from: '', to: '' });
   const [error, setError] = useState(null);
@@ -42,41 +42,22 @@ const HospitalDashboard = () => {
   const handleDoctorSelect = (e) => {
     setSelectedDoctorId(e.target.value);
     setCurrentSlotsForDoctor([]);
-    setNewSlotInput({ date: '', from: '', to: '', ampmFrom: 'AM', ampmTo: 'AM' });
+    setNewSlotInput({ date: '', from: '', to: '' });
     setError(null);
-  };
-
-  const autoFormatTime = (value) => {
-    const cleaned = value.replace(/[^\d]/g, '');
-    if (cleaned.length >= 3) {
-      return cleaned.slice(0, 2) + ':' + cleaned.slice(2, 4);
-    }
-    return cleaned;
   };
 
   const handleNewSlotInputChange = (e) => {
     const { name, value } = e.target;
-    const updatedValue = (name === 'from' || name === 'to') ? autoFormatTime(value) : value;
-    setNewSlotInput({ ...newSlotInput, [name]: updatedValue });
+    setNewSlotInput({ ...newSlotInput, [name]: value });
   };
 
   const handleAddSlot = () => {
-    const timeRegex = /^\d{2}:\d{2}$/;
-
     if (!newSlotInput.date || !newSlotInput.from || !newSlotInput.to) {
       setError('Please provide date, from time, and to time for the slot.');
       return;
     }
-
-    if (!timeRegex.test(newSlotInput.from) || !timeRegex.test(newSlotInput.to)) {
-      setError('Time must be in "hh:mm" format (e.g., 09:30, 17:45).');
-      return;
-    }
-
-    const formattedFrom = `${newSlotInput.from} ${newSlotInput.ampmFrom}`;
-    const formattedTo = `${newSlotInput.to} ${newSlotInput.ampmTo}`;
-    setCurrentSlotsForDoctor([...currentSlotsForDoctor, { date: newSlotInput.date, from: formattedFrom, to: formattedTo }]);
-    setNewSlotInput({ date: '', from: '', to: '', ampmFrom: 'AM', ampmTo: 'AM' });
+    setCurrentSlotsForDoctor([...currentSlotsForDoctor, newSlotInput]);
+    setNewSlotInput({ date: '', from: '', to: '' });
     setError(null);
   };
 
@@ -133,7 +114,7 @@ const HospitalDashboard = () => {
 
       setSelectedDoctorId('');
       setCurrentSlotsForDoctor([]);
-      setNewSlotInput({ date: '', from: '', to: '', ampmFrom: 'AM', ampmTo: 'AM' });
+      setNewSlotInput({ date: '', from: '', to: '' });
       setError(null);
 
     } catch (err) {
@@ -169,27 +150,39 @@ const HospitalDashboard = () => {
     }
   };
 
-  const handleLogout = () => {
-    localStorage.removeItem("hospitalId");
-    navigate('/login/hospital');
-  };
-
   if (!hospital) {
     return <div>{error || 'Loading hospital data...'}</div>;
   }
+   // Function to handle logout
+   const handleLogout = () => {
+    localStorage.removeItem("hospitalId"); 
+    
+    navigate('/login/hospital'); // Redirect back to login page on logout
+  };
 
   return (
     <div className="dashboard-container">
-      <header className="navbar">
-        <div className="logo">MediMeet</div>
-        <nav className="nav-links">
-          <a href="/">Home<br /><span>Let's Start</span></a>
-          <a href="/contact">Contact<br /><span>For Help?</span></a>
-          <a href="#" onClick={handleLogout} className="logout">
-            Logout<br /><span>Book Again</span>
-          </a>
-        </nav>
-      </header>
+      
+
+       {/* Navbar */}
+       <header className="navbar">
+          <div className="logo">MediMeet</div>
+          <nav className="nav-links">
+            <a href="/">
+              Home<br />
+              <span>Let's Start</span>
+            </a>
+            <a href="/contact">
+              Contact<br />
+              <span>For Help?</span>
+            </a>
+            {/* Use onClick for the logout link */}
+            <a href="#" onClick={handleLogout} className="logout">
+              Logout<br />
+              <span>Book Again</span>
+            </a>
+          </nav>
+        </header>
 
       <div className="banner">
         <h1>EXPAND YOUR REACH. ENHANCE YOUR CARE.</h1>
@@ -197,13 +190,20 @@ const HospitalDashboard = () => {
         <div className="icon-container">
           {[1, 2, 3, 4, 5, 6].map((icon, index) => (
             <div key={index} className="icon-box">
-              <img src={`/assets/icons/icon${icon}.png`} alt={`icon-${icon}`} className="banner-icon" />
+              <img
+                src={`/assets/icons/icon${icon}.png`}
+                alt={`icon-${icon}`}
+                className="banner-icon"
+              />
             </div>
           ))}
         </div>
       </div>
 
+      {/* Two-column layout */}
+      
       <div className="main-content doctor-management-grid">
+        {/* Left: Add Doctor Form */}
         <div className="doctor-form-box">
           <div className="panel-title">
             <h2>DOCTOR MANAGEMENT</h2>
@@ -230,70 +230,11 @@ const HospitalDashboard = () => {
 
             {selectedDoctorId && (
               <div className="slot-entry-box">
-                <h4>Add Available Slots</h4>
-
-                <div className="slot-inputs">
-                  <div>
-                    <label>Date:</label>
-                    <input 
-                      type="date" 
-                      name="date" 
-                      value={newSlotInput.date} 
-                      onChange={handleNewSlotInputChange} 
-                    />
-                  </div>
-                  
-                  <div className="time-input-group">
-                    <label>From:</label>
-                    <div className="time-input-wrapper">
-                      <input
-                        type="text"
-                        name="from"
-                        value={newSlotInput.from}
-                        onChange={handleNewSlotInputChange}
-                        placeholder="hh:mm"
-                        pattern="\d{2}:\d{2}"
-                        maxLength={5}
-                      />
-                      <select 
-                        name="ampmFrom" 
-                        value={newSlotInput.ampmFrom} 
-                        onChange={handleNewSlotInputChange}
-                      >
-                        <option value="AM">AM</option>
-                        <option value="PM">PM</option>
-                      </select>
-                    </div>
-                  </div>
-                  
-                  <div className="time-input-group">
-                    <label>To:</label>
-                    <div className="time-input-wrapper">
-                      <input
-                        type="text"
-                        name="to"
-                        value={newSlotInput.to}
-                        onChange={handleNewSlotInputChange}
-                        placeholder="hh:mm"
-                        pattern="\d{2}:\d{2}"
-                        maxLength={5}
-                      />
-                      <select 
-                        name="ampmTo" 
-                        value={newSlotInput.ampmTo} 
-                        onChange={handleNewSlotInputChange}
-                      >
-                        <option value="AM">AM</option>
-                        <option value="PM">PM</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-
-                <button className="action-button" onClick={handleAddSlot}>Add Slot</button>
+                <h4>Add Slots for {availableDoctors.find(doc => doc._id === selectedDoctorId)?.name}</h4>
 
                 {currentSlotsForDoctor.length > 0 && (
-                  <div className="slot-display-area">
+                  <div>
+                    <h5>Slots to be added:</h5>
                     <ul>
                       {currentSlotsForDoctor.map((slot, index) => (
                         <li key={index}>{slot.date}: {slot.from} - {slot.to}</li>
@@ -302,12 +243,35 @@ const HospitalDashboard = () => {
                   </div>
                 )}
 
-                <button className="action-button" onClick={handleSaveDoctorSlots}>Save Doctor Slots</button>
+                <div className="form-group slot-inputs">
+                  <input type="date" name="date" value={newSlotInput.date} onChange={handleNewSlotInputChange} />
+                  <input 
+  type="text" 
+  name="from" 
+  value={newSlotInput.from} 
+  onChange={handleNewSlotInputChange} 
+  placeholder="hh:mm AM/PM"
+/>
+
+<input 
+  type="text" 
+  name="to" 
+  value={newSlotInput.to} 
+  onChange={handleNewSlotInputChange} 
+  placeholder="hh:mm AM/PM"
+/>
+                  
+                </div>
+                <button className="action-button" onClick={handleAddSlot}>Add Slot</button>
+                <button className="action-button" onClick={handleSaveDoctorSlots}>
+                  Save Doctor Slots
+                </button>
               </div>
             )}
           </div>
         </div>
 
+        {/* Right: Doctor List */}
         <div className="doctor-list-box">
           <h3>Doctors in Dashboard</h3>
           {dashboardDoctors.length === 0 ? (
@@ -334,12 +298,15 @@ const HospitalDashboard = () => {
           )}
         </div>
       </div>
-
       <div className="illustration">
-        <img src="/assets/icons/hospital-illustration.png" alt="Hospital Illustration" />
-      </div>
+              {/* Ensure image path is correct */}
+              <img
+                src="/assets/icons/hospital-illustration.png"
+                alt="Hospital Illustration"
+              />
+            </div>
     </div>
   );
 };
 
-export default HospitalDashboard;
+export default HospitalDashboard; 
