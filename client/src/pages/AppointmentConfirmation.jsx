@@ -1,53 +1,35 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
-import axios from 'axios'; // Import axios
+import { useLocation, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import '../styles/AppointmentConfirmation.css';
 
 const AppointmentConfirmation = () => {
   const location = useLocation();
+  const navigate = useNavigate(); // ✅ Added navigate hook
+
   const [bookingInfo, setBookingInfo] = useState(null);
-  const [hospitalName, setHospitalName] = useState(''); // State for hospital name
-  const [doctorName, setDoctorName] = useState('');     // State for doctor name
-  const [loading, setLoading] = useState(true);         // State for loading indicator
-  const [error, setError] = useState(null);             // State for error handling
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    // Check if booking details were passed via state
     if (location.state && location.state.bookingDetails) {
       setBookingInfo(location.state.bookingDetails);
-      setLoading(false); // Booking info received, stop initial loading
+      setLoading(false);
     } else {
       setError("No booking details provided.");
       setLoading(false);
     }
   }, [location]);
 
-  useEffect(() => {
-    // Fetch hospital and doctor names when bookingInfo is available
-    const fetchNames = async () => {
-      if (bookingInfo && bookingInfo.hospitalId && bookingInfo.doctorId) {
-       try {
-          // Fetch Hospital Name using bookingInfo.hospital (the ObjectId)
-          const hospitalRes = await axios.get(`http://localhost:5000/api/hospital/${bookingInfo.hospital}`);
-          setHospitalName(hospitalRes.data.hospitalName); // Adjust based on your backend response
+  const handleLogout = () => {
+    localStorage.removeItem("patientId");
+    navigate('/login/patient');
+  };
 
-          // Fetch Doctor Name using bookingInfo.doctor (the ObjectId)
-          const doctorRes = await axios.get(`http://localhost:5000/api/doctor/${bookingInfo.doctor}`);
-          setDoctorName(doctorRes.data.name); // Adjust based on your backend response
+  const handleBook = () => {
+    navigate('/dashboard/patient');
+  };
 
-          setLoading(false); // Stop loading after fetching names
-
-        }  catch (err) {
-          console.error("Failed to fetch hospital or doctor details:", err);
-          setError("Failed to load hospital or doctor details.");
-        }
-      }
-    };
-
-    fetchNames();
-  }, [bookingInfo]); // This effect runs when bookingInfo changes
-
-  // Render loading or error state
   if (loading) {
     return <div className="confirmation-container">Loading appointment details...</div>;
   }
@@ -56,66 +38,63 @@ const AppointmentConfirmation = () => {
     return <div className="confirmation-container error">Error: {error}</div>;
   }
 
-  // Render null or a message if bookingInfo is still not available after loading
   if (!bookingInfo) {
-     return <div className="confirmation-container">No appointment details to display.</div>;
+    return <div className="confirmation-container">No appointment details to display.</div>;
   }
-
 
   return (
     <div className="confirmation-container">
-      <header className="header">
-        <h1 className="logo">MediMeet</h1>
+      <header className="navbar">
+        <div className="logo">MediMeet</div>
         <nav className="nav-links">
-          <a href="#">Contact<br /><span>For Help?</span></a>
-          <a href="#">Dashboard<br /><span>Book Again</span></a>
-          <a href="#">Logout<br /><span>Book Again</span></a>
+          <button onClick={() => navigate('/')}>
+            Home<br />
+            <span>Let's Start</span>
+          </button>
+          <button onClick={handleBook} className="BookAgain">
+            Book Again
+          </button>
+          <button onClick={handleLogout} className="logout">
+            Logout
+          </button>
         </nav>
       </header>
 
       <div className="banner">
         <h1>EXPAND YOUR REACH. ENHANCE YOUR CARE.</h1>
         <p>Grow with Us in the Digital Health Era.</p>
-        
         <div className="icon-container">
           {[1, 2, 3, 4, 5, 6].map((icon, index) => (
             <div key={index} className="icon-box">
-              {/* Replace with actual icons */}
               <img
-          src={`/assets/icons/icon${icon}.png`}
-          alt={`icon-${icon}`}
-          className="banner-icon"
-        />
-              
+                src={`/assets/icons/icon${icon}.png`}
+                alt={`icon-${icon}`}
+                className="banner-icon"
+              />
             </div>
           ))}
         </div>
       </div>
 
       <div className="main-content">
-        <div className="form-section">
-          <h3>Appointment Confirmed!</h3>
-          <p>Your appointment has been successfully booked</p>
-          <form className="confirmation-form">
-            <label>Appointment_id:</label>
-            <input type="text" readOnly value={bookingInfo._id || ''} />
-            <label>Patient_id</label>
-            <input type="text" readOnly value={bookingInfo.patient || ''} />
-            <label>Hospital name</label>
-            {/* Use the fetched hospitalName state */}
-            <input type="text" readOnly value={hospitalName || 'Fetching...'} />
-            <label>Doctor name</label>
-            {/* Use the fetched doctorName state */}
-            <input type="text" readOnly value={doctorName || 'Fetching...'} />
-            <label>Date</label>
-            <input type="text" readOnly value={bookingInfo.date || ''} />
-            <label>Slot:</label>
-            <input type="text" readOnly value={bookingInfo.slot || ''} />
-          </form>
-        </div>
-        <div className="image-section">
-          <img src="doctor-illustration.png" />
-        </div>
+      <div className="form-wrapper">
+  <div className="confirmation-box">
+    <h3>Appointment Confirmed!</h3>
+    <p>Your appointment has been successfully booked</p>
+    <form className="confirmation-form">
+      <label>Appointment ID:</label>
+      <input type="text" readOnly value={bookingInfo._id || ''} />
+      <label>Patient ID:</label>
+      <input type="text" readOnly value={bookingInfo.patient || ''} />
+      <label>Date:</label>
+      <input type="text" readOnly value={bookingInfo.date || ''} />
+      <label>Slot:</label>
+      <input type="text" readOnly value={bookingInfo.slot || ''} />
+    </form>
+  </div>
+</div>
+
+        
       </div>
     </div>
   );

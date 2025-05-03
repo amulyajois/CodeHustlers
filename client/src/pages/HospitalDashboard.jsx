@@ -153,6 +153,12 @@ const HospitalDashboard = () => {
   if (!hospital) {
     return <div>{error || 'Loading hospital data...'}</div>;
   }
+   // Function to handle logout
+   const handleLogout = () => {
+    localStorage.removeItem("hospitalId"); 
+    
+    navigate('/login/hospital'); // Redirect back to login page on logout
+  };
 
   return (
     <div className="dashboard-container">
@@ -160,23 +166,25 @@ const HospitalDashboard = () => {
         <span className="header-title">Hospital Dashboard</span>
       </div>
 
-      <div className="nav-container">
-        <div className="logo">MediMeet</div>
-        <div className="nav-links">
-          <div className="nav-item">
-            <div className="nav-link">Home</div>
-            <div className="nav-description">Let's Start</div>
-          </div>
-          <div className="nav-item">
-            <div className="nav-link">Contact</div>
-            <div className="nav-description">For Help?</div>
-          </div>
-          <div className="nav-item">
-            <div className="nav-link">Logout</div>
-            <div className="nav-description">Check Again</div>
-          </div>
-        </div>
-      </div>
+       {/* Navbar */}
+       <header className="navbar">
+          <div className="logo">MediMeet</div>
+          <nav className="nav-links">
+            <a href="/">
+              Home<br />
+              <span>Let's Start</span>
+            </a>
+            <a href="/contact">
+              Contact<br />
+              <span>For Help?</span>
+            </a>
+            {/* Use onClick for the logout link */}
+            <a href="#" onClick={handleLogout} className="logout">
+              Logout<br />
+              <span></span>
+            </a>
+          </nav>
+        </header>
 
       <div className="banner">
         <h1>EXPAND YOUR REACH. ENHANCE YOUR CARE.</h1>

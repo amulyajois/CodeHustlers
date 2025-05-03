@@ -219,9 +219,10 @@ const RegisterDoctor = () => {
             checked={formData.termsAccepted}
             onChange={handleChange}
           />
-          <label htmlFor="terms">
-            I agree to the <a href="#">terms and privacy policy</a>
-          </label>
+         <label htmlFor="terms">
+  I agree to the <a href="/terms.html" rel="noopener noreferrer">terms and privacy policy</a>
+</label>
+
         </div>
 
         {/* Submit Button */}

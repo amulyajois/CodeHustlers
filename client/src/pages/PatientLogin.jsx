@@ -68,7 +68,7 @@ const PatientLogin = () => {
         <button type="submit">Login</button>
 
         <div className="login-links">
-          <a href="#">Forgot Password?</a>
+          
           <a href="/register/patient">New to MediMeet? Register Here</a>
         </div>
       </form>

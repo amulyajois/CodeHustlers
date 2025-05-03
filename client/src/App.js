@@ -13,6 +13,7 @@ import HospitalDashboard from './pages/HospitalDashboard';
 import AppointmentConfirmation from './pages/AppointmentConfirmation';
 
 
+
 const App = () => {
   return (
     <Routes>

@@ -182,8 +182,8 @@ const RegisterPatient = () => {
             onChange={handleChange}
           />
           <label htmlFor="terms">
-            I agree to the <a href="#">terms and privacy policy</a>
-          </label>
+  I agree to the <a href="/terms.html"  rel="noopener noreferrer">terms and privacy policy</a>
+</label>
         </div>
 
         <button type="submit" disabled={loading}>
