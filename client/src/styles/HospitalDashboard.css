@@ -1,0 +1,184 @@
+.doctor-management-grid {
+  display: flex;
+  gap: 40px;
+  margin-top: 20px;
+  margin-left: -30px;
+  margin-right: 300px;
+}
+
+.doctor-list-box {
+  flex: 1;
+  background-color: #f9f9f9;
+  padding-left: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-left: 0px;
+}
+
+.dashboard-box {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  font-family: 'Segoe UI', sans-serif;
+  max-width: 500px;
+  margin-top: 20px;
+}
+
+.doctor-card {
+  background-color: #fdfdfd;
+  border: 1px solid #ddd;
+  padding: 16px;
+  border-radius: 10px;
+  margin-top: 12px;
+}
+
+.doctor-card h4 {
+  margin-bottom: 6px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.doctor-card h5 {
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #555;
+}
+
+.doctor-card h6 {
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #444;
+}
+
+.doctor-card ul {
+  padding-left: 20px;
+  margin-top: 8px;
+}
+
+.doctor-card li {
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: #222;
+}
+
+.dashboard-box h3 {
+  margin: 0 0 8px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+}
+
+.dashboard-box p {
+  margin: 0;
+  color: #666;
+}
+
+/* Modified slot-inputs section to match the image */
+.slot-entry-box {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  margin-top: 15px;
+}
+
+.slot-entry-box h4 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #333;
+  font-weight: bold;
+}
+
+.slot-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.slot-inputs label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+  font-size: 16px;
+}
+
+.slot-inputs input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.time-input-group {
+  margin-bottom: 15px;
+}
+
+.time-input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.time-input-wrapper input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.time-input-wrapper select {
+  width: 80px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: white;
+  font-size: 14px;
+}
+
+.action-button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.action-button:hover {
+  background-color: #0056b3;
+}
+
+.slot-display-area {
+  width: 100%;
+  min-height: 60px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 15px 0;
+  background-color: #f9f9f9;
+}
+
+.illustration {
+  position: absolute;
+  right: 60px;
+  bottom: 200px;
+  width: 200px;
+}
+
+.illustration img {
+  width: 100%;
+}

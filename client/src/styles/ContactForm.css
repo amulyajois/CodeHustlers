@@ -1,0 +1,91 @@
+
+
+
+
+
+
+
+
+
+
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+/* Contact Form Container */
+.contact-form-container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Title */
+.contact-form-container h2 {
+    text-align: center;
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Form Inputs */
+.contact-form-container input,
+.contact-form-container textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+/* Focus Input */
+.contact-form-container input:focus,
+.contact-form-container textarea:focus {
+    border-color: #007BFF;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Textarea */
+.contact-form-container textarea {
+    height: 150px;
+    resize: none;
+}
+
+/* Submit Button */
+.contact-form-container button {
+    background-color: #007BFF;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.contact-form-container button:hover {
+    background-color: #0056b3;
+}
+
+/* Status Message */
+.contact-form-container p {
+    text-align: center;
+    font-size: 16px;
+    color: green;
+    margin-top: 20px;
+}
+
+.contact-form-container p.error {
+    color: red;
+}

@@ -1,0 +1,286 @@
+/* General Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+.dashboard-container {
+  min-height: 100vh;
+  background-color: #f0f6ff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-text {
+  padding: 15px 20px;
+  color: #8f9bb3;
+  font-size: 18px;
+}
+
+/* Navbar Styles */
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: white;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.logo {
+  color: #0047AB;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-item {
+  text-align: center;
+}
+
+.nav-link {
+  color: #0047AB;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.nav-description {
+  font-size: 12px;
+  color: #777;
+}
+
+.logout {
+  color: #0039a6 !important;
+}
+
+/* Icons */
+.icon-container,
+.icons-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.icon-box,
+.icon-hexagon {
+  width: 65px;
+  height: 65px;
+  background-color: white;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-box img,
+.icon-hexagon img {
+  width: 30px;
+  height: 30px;
+}
+
+/* Main Content */
+.main-content,
+.dashboard-content,
+.form-container {
+  display: flex;
+  padding: 20px;
+  gap: 20px;
+}
+
+.dashboard-panel,
+.hospital-form {
+  flex: 3;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid #e0e0e0;
+  padding: 20px;
+}
+
+.sidebar,
+.hospital-illustration {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f6ff;
+}
+
+.doctor-avatar img,
+.hospital-illustration img {
+  width: 150px;
+  height: 150px;
+  max-width: 200px;
+}
+
+/* Content Titles */
+.panel-title,
+.content-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.panel-title h2,
+.content-header h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.panel-title p,
+.content-header p {
+  font-size: 14px;
+  color: #777;
+}
+
+/* Form Styles */
+.form-section {
+  margin-bottom: 30px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.form-group,
+.time-inputs,
+.doctor-section {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.form-group label,
+.time-input-group label,
+.form-label {
+  width: 120px;
+  font-weight: bold;
+  text-align: right;
+}
+
+.time-input-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.form-group input,
+.form-group select,
+.time-input-group input,
+.doctor-info input,
+.select-wrapper select {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: white;
+}
+
+.select-wrapper {
+  position: relative;
+  width: 200px;
+}
+
+.select-wrapper::after {
+  content: '▼';
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  color: #666;
+  pointer-events: none;
+  font-size: 12px;
+}
+
+/* Buttons */
+.button-group {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.add-more-btn,
+.action-button {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.done-btn {
+  background-color: #0047AB;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  flex-grow: 1;
+}
+
+.add-more-btn:hover {
+  background-color: #5a6268;
+}
+
+.done-btn:hover,
+.action-button:hover {
+  background-color: #003380;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .main-content,
+  .form-container,
+  .time-inputs,
+  .doctor-section {
+    flex-direction: column;
+  }
+
+  .form-group,
+  .time-input-group {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .form-group label,
+  .time-input-group label {
+    width: 100%;
+    text-align: left;
+  }
+
+  .nav-links {
+    gap: 15px;
+  }
+
+  .action-button,
+  .add-more-btn,
+  .done-btn {
+    width: 100%;
+  }
+
+  .hospital-form,
+  .sidebar,
+  .hospital-illustration {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .icon-container {
+    flex-wrap: wrap;
+  }
+}

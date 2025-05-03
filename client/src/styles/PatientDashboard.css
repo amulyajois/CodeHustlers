@@ -1,0 +1,229 @@
+/* PatientDashboard.css */
+
+.patient-dashboard {
+  background-color: #f0f5ff;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-text {
+  padding: 15px 20px;
+  color: #8f9bb3;
+  font-size: 18px;
+}
+
+/* Navbar Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.logo {
+  color: #0039a6;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+}
+
+.nav-links a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #333;
+  text-align: center;
+  font-size: 14px;
+}
+
+.nav-links a span {
+  font-size: 12px;
+  color: #8f9bb3;
+}
+
+.logout {
+  color: #0039a6 !important;
+}
+
+/* Banner Section */
+.banner {
+  background-color: #0a1155;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.banner h2 {
+  margin-bottom: 5px;
+  font-size: 24px;
+}
+
+.banner p {
+  margin-top: 0;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.icons-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.icon-hexagon {
+  width: 60px;
+  height: 60px;
+  background-color: white;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-hexagon img {
+  width: 30px;
+  height: 30px;
+}
+
+/* Booking Section */
+.booking-section {
+  padding: 20px;
+  position: relative;
+}
+
+.booking-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.booking-header h3 {
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.booking-header p {
+  margin-top: 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.booking-form-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  position: relative;
+}
+
+.form-left, .form-right {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-left input, 
+.form-left textarea {
+  padding: 12px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.form-left textarea {
+  height: 100px;
+  resize: none;
+}
+
+.select-wrapper {
+  position: relative;
+}
+
+.select-wrapper select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  appearance: none;
+  background-color: white;
+  font-size: 14px;
+}
+
+.select-wrapper::after {
+  content: '▼';
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  color: #666;
+  pointer-events: none;
+  font-size: 12px;
+}
+.search-hospitals-btn {
+  width: 200px;
+  background-color: #0039a6;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.save-details-btn {
+  width: 600px;
+  background-color: #0039a6;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.book-now-btn {
+  width: 200px;
+  background-color: #0039a6;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.book-now-btn:hover {
+  background-color: #002d80;
+}
+
+.illustration {
+  position: absolute;
+  right: 0;
+  bottom: 200px;
+  width: 200px;
+}
+
+.illustration img {
+  width: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .booking-form-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .illustration {
+    display: none;
+  }
+}
