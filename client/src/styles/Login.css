@@ -1,0 +1,85 @@
+/* Login.css */
+
+body, html {
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f7fc;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 1rem;
+}
+
+.login-form {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 14px;
+  border: 1.5px dotted #0070f3;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 400px;
+  text-align: left;
+}
+
+.login-form h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.login-form label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #444;
+  margin-bottom: 0.25rem;
+  display: block;
+}
+
+.login-form input[type="email"],
+.login-form input[type="password"] {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1.2rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background: #fafafa;
+}
+
+.remember-me {
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.login-form button {
+  width: 100%;
+  padding: 0.9rem;
+  background-color: #0047ab;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-form button:hover {
+  background-color: #003580;
+}
+
+.login-links {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.login-links a {
+  display: block;
+  margin-top: 0.5rem;
+  color: #0070f3;
+  text-decoration: none;
+  font-size: 0.9rem;
+}

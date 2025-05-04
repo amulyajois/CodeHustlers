@@ -1,0 +1,264 @@
+/* General Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+.dashboard-container {
+  min-height: 100vh;
+  background-color: #f0f6ff;
+}
+
+.header {
+  padding: 20px;
+  background-color: white;
+  text-align: center;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.header-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #0047AB;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  background-color: white;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #0047AB;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-item {
+  text-align: center;
+}
+
+.nav-link {
+  color: #0047AB;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.nav-description {
+  font-size: 12px;
+  color: #777;
+}
+
+/* Banner */
+.banner {
+  padding: 30px 20px;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.banner h1 {
+  color: #0047AB;
+  font-size: 26px;
+  margin-bottom: 8px;
+}
+
+.banner p {
+  color: #777;
+  font-size: 14px;
+}
+
+.icon-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.icon-box {
+  width: 60px;
+  height: 60px;
+  background-color: white;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.icon-box img {
+  width: 30px;
+  height: 30px;
+}
+
+/* Main Content Layout */
+.main-content {
+  display: flex;
+  padding: 30px 20px;
+  gap: 30px;
+}
+
+.two-column-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Left Panel */
+.left-panel {
+  flex: 2;
+  background-color: white;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.panel-title h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+.panel-title p {
+  color: #777;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #555;
+}
+
+.form-group select {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.view-appointments-btn {
+  margin-top: 10px;
+  margin-left: 10px;
+  padding: 10px 20px;
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.view-appointments-btn:hover {
+  background-color: #005fa3;
+}
+
+/* Appointments Table */
+.appointments-section {
+  margin-top: 30px;
+}
+
+.appointments-section h3 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: #444;
+}
+
+.appointments-section .error {
+  color: red;
+  font-weight: 500;
+}
+
+.appointments-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.appointments-table th,
+.appointments-table td {
+  border: 1px solid #ddd;
+  padding: 12px 14px;
+  text-align: left;
+}
+
+.appointments-table th {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.appointments-table tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.clickable-patient-id {
+  cursor: pointer;
+  color: #0551a3;
+  text-decoration: underline;
+}
+
+/* Right Panel */
+.right-panel {
+  flex: 1;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  height: fit-content;
+}
+
+.right-panel h2 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  color: #222;
+}
+
+.right-panel p {
+  margin: 8px 0;
+  color: #171616;
+  line-height: 1.5;
+}
+
+/* Responsive Layout */
+@media (max-width: 1024px) {
+  .main-content,
+  .two-column-layout {
+    flex-direction: column;
+  }
+
+  .left-panel,
+  .right-panel {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav-links {
+    gap: 15px;
+  }
+
+  .view-appointments-btn {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .icon-container {
+    flex-wrap: wrap;
+  }
+}
